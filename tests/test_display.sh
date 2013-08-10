@@ -9,5 +9,5 @@ test_shout(){
   expected="#####
 AAA
 #####"
-  assertEquals "${generated}" "${expected}"
+  assertEquals "${expected}" "${generated}"
 }
