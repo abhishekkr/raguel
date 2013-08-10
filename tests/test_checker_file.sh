@@ -16,6 +16,10 @@ test_if_file(){
   expected='true'
   assertEquals "${expected}" "${generated}"
 
+  generated=`if_file "$BASEDIR/run_tests.sh" then_run "echo 'A'"`
+  expected='A'
+  assertEquals "${expected}" "${generated}"
+
   if_file "$BASEDIR/run_tests_which_are_not_there.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected='false'
@@ -102,6 +106,10 @@ test_if_not_file(){
   if_not_file "$BASEDIR/run_tests.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected='false'
+  assertEquals "${expected}" "${generated}"
+
+  generated=`if_not_file "$BASEDIR/run_tests_not_there.sh" then_run "echo 'A'"`
+  expected='A'
   assertEquals "${expected}" "${generated}"
 
   if_not_file "$BASEDIR/run_tests_which_are_not_there.sh"
