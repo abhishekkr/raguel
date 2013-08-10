@@ -10,66 +10,6 @@ tearDown(){
 
 ### checker test ###
 
-test_if_equal(){
-  if_equal 'abc' 'abc'
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='true'
-  assertEquals "${expected}" "${generated}"
-
-  if_equal 'abc' 'abcde'
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='false'
-  assertEquals "${expected}" "${generated}"
-}
-
-test_if_equal_run(){
-  generated=`if_equal 'abc' 'abc' then_run 'echo "abc is the value."'`
-  expected='abc is the value.'
-  assertEquals "${expected}" "${generated}"
-
-  generated=`if_equal 'abc' 'abcde' else_run 'echo "abc is not the value."'`
-  expected='abc is not the value.'
-  assertEquals "${expected}" "${generated}"
-
-  generated=`if_equal 'abc' 'abcde' then_run 'echo "abc is the value."'`
-  expected=
-  assertEquals "${expected}" "${generated}"
-
-  generated=`if_equal 'abc' 'abc' else_run 'echo "abc is not the value."'`
-  expected=
-  assertEquals "${expected}" "${generated}"
-}
-
-test_if_not_equal(){
-  if_not_equal 'abc' 'abc'
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='false'
-  assertEquals "${expected}" "${generated}"
-
-  if_not_equal 'abc' 'abcde'
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='true'
-  assertEquals "${expected}" "${generated}"
-}
-
-test_if_not_equal_run(){
-  generated=`if_not_equal 'abc' 'abc' then_run 'echo "abc is the value."'`
-  expected=
-  assertEquals "${expected}" "${generated}"
-
-  generated=`if_not_equal 'abc' 'abcde' else_run 'echo "abc is not the value."'`
-  expected=
-  assertEquals "${expected}" "${generated}"
-
-  generated=`if_not_equal 'abc' 'abcde' then_run 'echo "abc is the value."'`
-  expected='abc is the value.'
-  assertEquals "${expected}" "${generated}"
-
-  generated=`if_not_equal 'abc' 'abc' else_run 'echo "abc is not the value."'`
-  expected='abc is not the value.'
-  assertEquals "${expected}" "${generated}"
-}
-
 test_then_run(){
   export RAGUEL_IF_EQUAL_STATE='true'
   generated=$(then_run "echo $USER")
@@ -102,50 +42,16 @@ test_else_run(){
   assertEquals "${RAGUEL_IF_EQUAL_STATE}" ''
 }
 
-test_if_file(){
-  if_file "$BASEDIR/run_tests.sh"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='true'
-  assertEquals "${expected}" "${generated}"
+test_end_if(){
+  export RAGUEL_IF_EQUAL_STATE=''
+  end_if
+  assertEquals "$RAGUEL_IF_EQUAL_STATE" ''
 
-  if_file "$BASEDIR/run_tests_which_are_not_there.sh"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='false'
-  assertEquals "${expected}" "${generated}"
-}
+  export RAGUEL_IF_EQUAL_STATE='true'
+  end_if
+  assertEquals "$RAGUEL_IF_EQUAL_STATE" ''
 
-test_if_not_file(){
-  if_not_file "$BASEDIR/run_tests.sh"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='false'
-  assertEquals "${expected}" "${generated}"
-
-  if_not_file "$BASEDIR/run_tests_which_are_not_there.sh"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='true'
-  assertEquals "${expected}" "${generated}"
-}
-
-test_if_dir(){
-  if_dir "${BASEDIR}/"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='true'
-  assertEquals "${expected}" "${generated}"
-
-  if_dir "${BASEDIR}_which_are_not_there.sh"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='false'
-  assertEquals "${expected}" "${generated}"
-}
-
-test_if_not_dir(){
-  if_not_dir "${BASEDIR}/"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='false'
-  assertEquals "${expected}" "${generated}"
-
-  if_not_dir "${BASEDIR}_which_are_not_there.sh"
-  generated=$RAGUEL_IF_EQUAL_STATE
-  expected='true'
-  assertEquals "${expected}" "${generated}"
+  export RAGUEL_IF_EQUAL_STATE='false'
+  end_if
+  assertEquals "$RAGUEL_IF_EQUAL_STATE" ''
 }

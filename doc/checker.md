@@ -43,6 +43,8 @@ echo ''
 
 #### if_equal
 
+` # it also has 'then_if_equal' & 'else_if_equal' for chaining if `
+
 ##### syntax
 
 ` # if_equal <arg1> <arg2> `
@@ -66,6 +68,8 @@ echo ''
 
 #### if_not_equal
 
+` # it also has 'then_if_not_equal' & 'else_if_not_equal' for chaining if `
+
 ##### syntax
 
 ` # if_not_equal <arg1> <arg2> `
@@ -87,7 +91,69 @@ echo ''
 ###+++++
 
 
+#### if else if [or] chaining if
+
+` # all 'if_<check>' & 'if_not_<check>' have their 'then_' & 'else_' versions `
+
+##### syntax
+
+` # if_<check> <args, > ; then_run <task> ; if_<check> ; then_run <task> `
+
+` # if_<check> <args, > ; then_run <task> ; if_<check> <...> ; end_if `
+
+` #can use any of if_ if_not_ checks present in checker in pre-fixed by else_ `
+
+##### usage
+
+BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
+
+if_not_file "$HOME/.vimrc"
+then_if_not_dir "$HOME/.vim"
+then_run "echo \"You don't have any VIM config in your HOME dir.\""
+
+if_file "$HOME/.vimrc"
+THE_CONFIG="$HOME/.vimrc"
+else_if_dir "$HOME/.vim"
+THE_CONFIG="$THE_CONFIG and $HOME/.vim"
+then_run "echo 'You have VIM $THE_CONFIG config in your HOME dir.'"
+
+if_file "$HOME/.vimrc"
+then_if_dir "$HOME/.vim"
+then_run "echo 'You have VIM .vimrc and .vim config in your HOME dir.'"
+
+###+++++
+
+
+#### end_if
+
+` # it's there to close of any if_<check> chaining and make you feel better. `
+
+##### syntax
+
+` # end_if `
+
+##### usage
+
+BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
+
+if_not_dir "$HOME/.vim"
+then_run "echo 'No VIM config present in Home dir.'"
+else_if_dir "$HOME/.miv"
+then_run "echo 'Your MIV config dir is present in Home dir'"
+else_if_file "$HOME/.mivrc"
+then_run "echo 'Your MIV RC is present in Home dir'"
+else_if_equal 10 100
+then_run "echo '10 is not 100, so what... didn't you knew.'"
+else_run "echo 'nothing passed...'"
+end_if
+echo ''
+
+###+++++
+
+
 #### if_file
+
+` # it also has 'then_if_not_file' & 'else_if_not_file' for chaining if `
 
 ##### Usable in all similar patterns with 'if_equal'
 
@@ -109,6 +175,8 @@ echo ''
 
 #### if_not_file
 
+` # it also has 'then_if_not_file' & 'else_if_not_file' for chaining if `
+
 ##### syntax
 
 ` # if_not_file <path_to_file> `
@@ -126,6 +194,8 @@ echo ''
 
 
 #### if_dir
+
+` # it also has 'then_if_not_dir' & 'else_if_not_dir' for chaining if `
 
 ##### Usable in all similar patterns with 'if_equal'
 
@@ -146,6 +216,8 @@ echo ''
 
 
 #### if_not_dir
+
+` # it also has 'then_if_not_dir' & 'else_if_not_dir' for chaining if `
 
 ##### syntax
 
