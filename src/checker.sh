@@ -22,9 +22,14 @@ end_if(){
 }
 
 ## Loading all checkers
-[[ -z "$RAGUEL_DIR" ]] && RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+if [[ -z "$RAGUEL_DIR" ]]; then
+  if [[ -z "$BASH_SOURCE" ]]; then
+    export RAGUEL_DIR=$(dirname $0)
+  else
+    export RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+  fi
+fi
 for check_plugins in `ls $RAGUEL_DIR/checker/*.sh`
 do
   . $check_plugins
 done
-. "${RAGUEL_DIR}/looper.sh"

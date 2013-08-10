@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/display.sh"
+. "$RAGUEL_DIR/display.sh"
 
 ### display test ###
  

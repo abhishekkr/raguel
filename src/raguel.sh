@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-export RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+if [[ -z "$RAGUEL_DIR" ]]; then
+  if [[ -z "$BASH_SOURCE" ]]; then
+    export RAGUEL_DIR=$(dirname $0)
+  else
+    export RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+  fi
+fi
 
 for raguel_spell in `ls $RAGUEL_DIR/*.sh`
 do

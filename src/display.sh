@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-[[ -z "$RAGUEL_DIR" ]] && RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+if [[ -z "$RAGUEL_DIR" ]]; then
+  if [[ -z "$BASH_SOURCE" ]]; then
+    export RAGUEL_DIR=$(dirname $0)
+  else
+    export RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+  fi
+fi
 . "${RAGUEL_DIR}/looper.sh"
 
 shout(){

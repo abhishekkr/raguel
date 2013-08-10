@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
+. "$RAGUEL_DIR/checker.sh"
 
 ### setUp; tearDown ###
 

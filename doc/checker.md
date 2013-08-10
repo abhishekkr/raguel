@@ -1,6 +1,17 @@
 ## Raguel Spell: Checker
 ##### these markdown docs, run as shell script to see effect of usage commands
 
+##### just loading checker
+if [[ -z "$RAGUEL_DIR" ]]; then
+  if [[ -z "$BASH_SOURCE" ]]; then
+    RAGUEL_DIR=$(dirname $0)
+  else
+    RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+  fi
+fi
+export RAGUEL_DIR="$RAGUEL_DIR/../src"
+. "${RAGUEL_DIR}/checker.sh"
+
 ###+++++
 
 #### then_run
@@ -11,7 +22,6 @@
 
 ##### usage
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 RAGUEL_IF_EQUAL_STATE='true'
 then_run "echo \"if RAGUEL_IF_EQUAL_STATE is 'true', then_run evals\" ;
           echo \"it also evals when 'if_equal' or similar if_ succeeds\""
@@ -30,7 +40,6 @@ echo ''
 
 ##### usage
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 RAGUEL_IF_EQUAL_STATE='false'
 else_run "echo \"if RAGUEL_IF_EQUAL_STATE is 'false', then_run evals\" ;
           echo \"it also evals when 'if_equal' or similar if_ succeeds\""
@@ -50,8 +59,6 @@ echo ''
 ` # if_equal <arg1> <arg2> `
 
 ##### usage
-
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 
 if_equal $USER "abhishekkr" "echo 'any command run on pass & fail'"
 
@@ -75,8 +82,6 @@ echo ''
 ` # if_not_equal <arg1> <arg2> `
 
 ##### usage
-
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 
 if_not_equal $USER "abhishekkr" "echo 'any command run on pass & fail'"
 
@@ -105,8 +110,6 @@ echo ''
 
 ##### usage
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
-
 if_not_file "$HOME/.vimrc"
 then_if_not_dir "$HOME/.vim"
 then_run "echo \"You don't have any VIM config in your HOME dir.\""
@@ -133,8 +136,6 @@ then_run "echo 'You have VIM .vimrc and .vim config in your HOME dir.'"
 ` # end_if `
 
 ##### usage
-
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 
 if_not_dir "$HOME/.vim"
 then_run "echo 'No VIM config present in Home dir.'"
@@ -163,8 +164,6 @@ echo ''
 
 ##### usage
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
-
 if_file "$HOME/.bashrc"
 then_run "echo 'You have BASH RC file in your HOME dir.'"
 else_run "echo 'No BASH RC file found in HOME dir.'"
@@ -182,8 +181,6 @@ echo ''
 ` # if_not_file <path_to_file> `
 
 ##### usage
-
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 
 if_not_file "$HOME/.bash_profile"
 then_run "echo 'No BASH Profile file found in HOME dir.'"
@@ -205,8 +202,6 @@ echo ''
 
 ##### usage
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
-
 if_dir $HOME
 then_run "echo 'Your Home dir is already present.'"
 else_run "echo 'Home dir need to be created.'"
@@ -224,8 +219,6 @@ echo ''
 ` # if_not_dir <path_to_file> `
 
 ##### usage
-
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/checker.sh"
 
 if_not_dir "$HOME/.vim"
 then_run "echo 'No VIM config present in Home dir.'"

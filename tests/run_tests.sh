@@ -4,8 +4,14 @@
 export BASEDIR=$(dirname $0)
 export SCRIPTDIR=$(dirname $0)
 
-RAGUEL_DIR="${BASEDIR}/../src"
-. "${RAGUEL_DIR}/display.sh" --source-only
+if [[ -z "$RAGUEL_DIR" ]]; then
+  if [[ -z "$BASH_SOURCE" ]]; then
+    RAGUEL_DIR=$(dirname $0)
+  else
+    RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+  fi
+fi
+export RAGUEL_DIR="$RAGUEL_DIR/../src"
 
 TEMPDIR="$BASEDIR/../temp"
 SHUNIT2_VER="2.1.6"

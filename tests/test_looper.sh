@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/looper.sh"
+. "$RAGUEL_DIR/looper.sh"
 
 ### looper test ###
 

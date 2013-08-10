@@ -16,3 +16,6 @@ the SYSTEMS.
 ```
 
 For ways it can improve Shell Scripting, refer Wiki.
+
+It's best suited to Bourne Shell,
+though it's made compatible to others as much possible.

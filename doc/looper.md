@@ -11,7 +11,16 @@
 
 ##### usage
 
-BASEDIR=$(dirname "${BASH_SOURCE[0]}") ; . "$BASEDIR/../src/looper.sh"
+if [[ -z "$RAGUEL_DIR" ]]; then
+  if [[ -z "$BASH_SOURCE" ]]; then
+    RAGUEL_DIR=$(dirname $0)
+  else
+    RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
+  fi
+fi
+export RAGUEL_DIR="$RAGUEL_DIR/../src"
+. "${RAGUEL_DIR}/looper.sh"
+
 repeat_run 5 "echo 'Running repeat_run with counter 5.'"
 
 ###+++++
