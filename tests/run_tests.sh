@@ -29,5 +29,6 @@ do
   if [ $test_case != "${BASEDIR}/test_example.sh" ]; then
     echo "Running $test_case ..."
     $SHUNIT_BIN $test_case
+    echo "~~~~~~~~~~~~~~~~~~~~~~"
   fi
 done
