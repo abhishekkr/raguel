@@ -90,14 +90,62 @@ test_else_run(){
   export RAGUEL_IF_EQUAL_STATE='true'
   generated=$(else_run "echo $USER")
   expected=''
-  assertEquals "${generated}" "${expected}"
+  assertEquals "${expected}" "${generated}"
   else_run "echo $USER" > /dev/null
   assertEquals "${RAGUEL_IF_EQUAL_STATE}" 'true'
 
   export RAGUEL_IF_EQUAL_STATE='false'
   generated=`else_run "echo $USER"`
   expected=$USER
-  assertEquals "${generated}" "${expected}"
+  assertEquals "${expected}" "${generated}"
   else_run "echo $USER" > /dev/null
   assertEquals "${RAGUEL_IF_EQUAL_STATE}" ''
+}
+
+test_if_file(){
+  if_file "$BASEDIR/run_tests.sh"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='true'
+  assertEquals "${expected}" "${generated}"
+
+  if_file "$BASEDIR/run_tests_which_are_not_there.sh"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='false'
+  assertEquals "${expected}" "${generated}"
+}
+
+test_if_not_file(){
+  if_not_file "$BASEDIR/run_tests.sh"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='false'
+  assertEquals "${expected}" "${generated}"
+
+  if_not_file "$BASEDIR/run_tests_which_are_not_there.sh"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='true'
+  assertEquals "${expected}" "${generated}"
+}
+
+test_if_dir(){
+  if_dir "${BASEDIR}/"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='true'
+  assertEquals "${expected}" "${generated}"
+
+  if_dir "${BASEDIR}_which_are_not_there.sh"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='false'
+  assertEquals "${expected}" "${generated}"
+}
+
+test_if_not_dir(){
+  if_not_dir "${BASEDIR}/"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='false'
+  assertEquals "${expected}" "${generated}"
+
+  if_not_dir "${BASEDIR}_which_are_not_there.sh"
+  generated=$RAGUEL_IF_EQUAL_STATE
+  expected='true'
+  assertEquals "${expected}" "${generated}"
 }
