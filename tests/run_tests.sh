@@ -30,7 +30,7 @@ if [ ! -f $SHUNIT_BIN ]; then
 fi
 
 ## Loading all test cases
-for test_case in `ls $BASEDIR/test_*.sh`
+for test_case in `ls $BASEDIR/test_*${1}*.sh`
 do
   if [ $test_case != "${BASEDIR}/test_example.sh" ]; then
     echo "Running $test_case ..."
