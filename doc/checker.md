@@ -226,3 +226,41 @@ else_run "echo 'Your VIM config dir is present in Home dir'"
 echo ''
 
 ###+++++
+
+
+#### if_var
+
+` # it also has 'then_if_not_var' & 'else_if_not_var' for chaining if `
+
+##### Usable in all similar patterns with 'if_equal'
+
+##### syntax
+
+` # if_var $VAR `
+
+##### usage
+
+if_var $HOME
+then_run "echo 'Var HOME present.'"
+else_run "echo 'Var HOME not present.'"
+echo ''
+
+###+++++
+
+
+#### if_not_var
+
+` # it also has 'then_if_not_var' & 'else_if_not_var' for chaining if `
+
+##### syntax
+
+` # if_not_var $VAR `
+
+##### usage
+
+if_not_var "$HOMESS"
+then_run "echo 'Var HOMESS present.'"
+else_run "echo 'Var HOMESS not present.'"
+echo ''
+
+###+++++
