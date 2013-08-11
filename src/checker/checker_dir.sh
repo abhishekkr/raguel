@@ -10,7 +10,7 @@ if_dir(){
   else
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
-  if [[ $# -ne 2 ]]; then
+  if [[ $# -ne 1 ]]; then
     eval "${if_cmd}"
   fi
 }
@@ -39,7 +39,7 @@ if_not_dir(){
   else
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
-  if [[ $# -ne 2 ]]; then
+  if [[ $# -ne 1 ]]; then
     eval "${if_cmd}"
   fi
 }
