@@ -16,8 +16,8 @@ load_distro_specifics(){
     export RAGUEL_PACKAGE_UNINSTALL='emerge --depclean '
   elif [ -f /etc/arch-release ]; then
     export RAGUEL_DISTRO_TYPE='arch'
-    export RAGUEL_PACKAGE_INSTALL='pacman -Sy '
-    export RAGUEL_PACKAGE_UNINSTALL='pacman -Ry '
+    export RAGUEL_PACKAGE_INSTALL='pacman -Sy --noconfirm '
+    export RAGUEL_PACKAGE_UNINSTALL='pacman -R --noconfirm '
   elif [ `uname -s` == 'FreeBSD' ] ; then
     export RAGUEL_DISTRO_TYPE='bsd'
     export RAGUEL_PACKAGE_INSTALL='pkg_add -r  '
