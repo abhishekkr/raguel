@@ -21,15 +21,15 @@ load_distro_specifics(){
   elif [ `uname -s` == 'FreeBSD' ] ; then
     export RAGUEL_DISTRO_TYPE='bsd'
     export RAGUEL_PACKAGE_INSTALL='pkg_add -r  '
-    export RAGUEL_PACKAGE_INSTALL='pkg_deinstall --preserve '
+    export RAGUEL_PACKAGE_UNINSTALL='pkg_deinstall --preserve '
   elif [ -f /etc/SuSE-release ] ; then
     export RAGUEL_DISTRO_TYPE='slackware'
     export RAGUEL_PACKAGE_INSTALL='zypper install -y '
-    export RAGUEL_PACKAGE_INSTALL='zypper remove -y '
+    export RAGUEL_PACKAGE_UNINSTALL='zypper remove -y '
   else
     echo "Raguel is not able to find signature of this Distro."
     export RAGUEL_DISTRO_TYPE=
     export RAGUEL_PACKAGE_INSTALL=
-    export RAGUEL_PACKAGE_INSTALL=
+    export RAGUEL_PACKAGE_UNINSTALL=
   fi
 }
