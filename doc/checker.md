@@ -251,7 +251,7 @@ echo ''
 
 #### if_var
 
-` # it also has 'then_if_not_var' & 'else_if_not_var' for chaining if `
+` # it also has 'then_if_var' & 'else_if_var' for chaining if `
 
 ##### Usable in all similar patterns with 'if_equal'
 
@@ -285,6 +285,48 @@ echo ''
 if_not_var "$HOMESS"
 then_run "echo 'Var HOMESS present.'"
 else_run "echo 'Var HOMESS not present.'"
+echo ''
+```
+
+***
+
+
+#### if_git_latest
+
+` # it also has 'then_if_git_latest' & 'else_if_git_latest' for chaining if `
+
+##### Usable in all similar patterns with 'if_equal'
+
+##### syntax
+
+` # if_git_latest $REPO_DIR `
+
+##### usage
+
+```Shell
+if_git_latest $REPO_DIR
+then_run "echo 'Latest changes are in.'"
+else_run "git pull"
+echo ''
+```
+
+***
+
+
+#### if_not_git_latest
+
+` # it also has 'then_if_not_git_latest' & 'else_if_not_git_latest' for chaining if `
+
+##### syntax
+
+` # if_not_git_latest $REPO_DIR `
+
+##### usage
+
+```Shell
+if_not_git_latest $REPO_DIR
+then_run "git pull"
+else_run "echo 'Latest changes are in.'"
 echo ''
 ```
 
