@@ -41,8 +41,8 @@ GEMRC_URL="https://raw.github.com/abhishekkr/tux-svc-mux/master/rc/gemrc"
 
 auto_install htop
 
-if_not_file "$HOME/.gemrc"
-then_run "curl -kL -o $HOME/.gemrc $GEMRC_URL"
+if_not_file "\$HOME/.gemrc"
+then_run "curl -kL -o \$HOME/.gemrc \$GEMRC_URL"
 
 EOF
 
