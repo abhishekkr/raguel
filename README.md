@@ -36,8 +36,14 @@ cat > ./install_htop << EOF
 #!bash
 
 . $RAGUEL_SRC --source-only
+GEMRC_URL="https://raw.github.com/abhishekkr/tux-svc-mux/master/rc/gemrc"
+
 
 auto_install htop
+
+if_not_file "$HOME/.gemrc"
+then_run "curl -kL -o $HOME/.gemrc $GEMRC_URL"
+
 EOF
 
 bash ./install_htop
