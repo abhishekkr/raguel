@@ -1,7 +1,7 @@
 ### raguel
 
 [Mythological Context](http://en.wikipedia.org/wiki/Raguel_(archangel))
-Refernce: ArchAngel, Name means The friend of God.
+Reference: ArchAngel, Name means The friend of God.
 
 It's here to be the friend of Shell Gods to create minion scripts to serve
 the SYSTEMS.

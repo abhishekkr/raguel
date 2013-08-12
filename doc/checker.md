@@ -1,7 +1,7 @@
 ## Raguel Spell: Checker
-##### these markdown docs, run as shell script to see effect of usage commands
 
 ##### just loading checker
+```Shell
 if [[ -z "$RAGUEL_DIR" ]]; then
   if [[ -z "$BASH_SOURCE" ]]; then
     RAGUEL_DIR=$(dirname $0)
@@ -11,6 +11,7 @@ if [[ -z "$RAGUEL_DIR" ]]; then
 fi
 export RAGUEL_DIR="$RAGUEL_DIR/../src"
 . "${RAGUEL_DIR}/checker.sh"
+```
 
 ###+++++
 
@@ -22,12 +23,14 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 
 ##### usage
 
+```Shell
 RAGUEL_IF_EQUAL_STATE='true'
 then_run "echo \"if RAGUEL_IF_EQUAL_STATE is 'true', then_run evals\" ;
           echo \"it also evals when 'if_equal' or similar if_ succeeds\""
 echo "and after its run RAGUEL_IF_EQUAL_STATE gets set to \
 '$RAGUEL_IF_EQUAL_STATE' if it was 'true' before."
 echo ''
+```
 
 ###+++++
 
@@ -40,12 +43,14 @@ echo ''
 
 ##### usage
 
+```Shell
 RAGUEL_IF_EQUAL_STATE='false'
 else_run "echo \"if RAGUEL_IF_EQUAL_STATE is 'false', then_run evals\" ;
           echo \"it also evals when 'if_equal' or similar if_ succeeds\""
 echo "and after its run RAGUEL_IF_EQUAL_STATE gets set to \
 '$RAGUEL_IF_EQUAL_STATE' if it was 'false' before."
 echo ''
+```
 
 ###+++++
 
@@ -60,6 +65,7 @@ echo ''
 
 ##### usage
 
+```Shell
 if_equal $USER "abhishekkr" "echo 'any command run on pass & fail'"
 
 if_equal $USER "abhishekkr" then_run "echo 'then runs on pass'"
@@ -69,6 +75,7 @@ if_equal $USER "abhishekkr"
 then_run "echo 'abhishekkr is user'"
 else_run "echo '$USER is user'"
 echo ''
+```
 
 ###+++++
 
@@ -83,6 +90,7 @@ echo ''
 
 ##### usage
 
+```Shell
 if_not_equal $USER "abhishekkr" "echo 'any command run on pass & fail'"
 
 if_not_equal $USER "abhishekkr" then_run "echo 'then runs on pass'"
@@ -92,6 +100,7 @@ if_not_equal $USER "abhishekkr"
 then_run "echo 'abhishekkr is user'"
 else_run "echo '$USER is user'"
 echo ''
+```
 
 ###+++++
 
@@ -110,6 +119,7 @@ echo ''
 
 ##### usage
 
+```Shell
 if_not_file "$HOME/.vimrc"
 then_if_not_dir "$HOME/.vim"
 then_run "echo \"You don't have any VIM config in your HOME dir.\""
@@ -123,6 +133,7 @@ then_run "echo 'You have VIM $THE_CONFIG config in your HOME dir.'"
 if_file "$HOME/.vimrc"
 then_if_dir "$HOME/.vim"
 then_run "echo 'You have VIM .vimrc and .vim config in your HOME dir.'"
+```
 
 ###+++++
 
@@ -137,6 +148,7 @@ then_run "echo 'You have VIM .vimrc and .vim config in your HOME dir.'"
 
 ##### usage
 
+```Shell
 if_not_dir "$HOME/.vim"
 then_run "echo 'No VIM config present in Home dir.'"
 else_if_dir "$HOME/.miv"
@@ -148,6 +160,7 @@ then_run "echo '10 is not 100, so what... didn't you knew.'"
 else_run "echo 'nothing passed...'"
 end_if
 echo ''
+```
 
 ###+++++
 
@@ -164,10 +177,12 @@ echo ''
 
 ##### usage
 
+```Shell
 if_file "$HOME/.bashrc"
 then_run "echo 'You have BASH RC file in your HOME dir.'"
 else_run "echo 'No BASH RC file found in HOME dir.'"
 echo ''
+```
 
 ###+++++
 
@@ -182,10 +197,12 @@ echo ''
 
 ##### usage
 
+```Shell
 if_not_file "$HOME/.bash_profile"
 then_run "echo 'No BASH Profile file found in HOME dir.'"
 else_run "echo 'You have BASH Profile file in your HOME dir.'"
 echo ''
+```
 
 ###+++++
 
@@ -202,10 +219,12 @@ echo ''
 
 ##### usage
 
+```Shell
 if_dir $HOME
 then_run "echo 'Your Home dir is already present.'"
 else_run "echo 'Home dir need to be created.'"
 echo ''
+```
 
 ###+++++
 
@@ -220,10 +239,12 @@ echo ''
 
 ##### usage
 
+```Shell
 if_not_dir "$HOME/.vim"
 then_run "echo 'No VIM config present in Home dir.'"
 else_run "echo 'Your VIM config dir is present in Home dir'"
 echo ''
+```
 
 ###+++++
 
@@ -240,10 +261,12 @@ echo ''
 
 ##### usage
 
+```Shell
 if_var $HOME
 then_run "echo 'Var HOME present.'"
 else_run "echo 'Var HOME not present.'"
 echo ''
+```
 
 ###+++++
 
@@ -258,9 +281,11 @@ echo ''
 
 ##### usage
 
+```Shell
 if_not_var "$HOMESS"
 then_run "echo 'Var HOMESS present.'"
 else_run "echo 'Var HOMESS not present.'"
 echo ''
+```
 
 ###+++++
