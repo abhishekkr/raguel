@@ -19,3 +19,26 @@ For ways it can improve Shell Scripting, refer Wiki.
 
 It's best suited to Bourne Shell,
 though it's made compatible to others as much possible.
+
+***
+
+#### Quick Examples:
+
+```Shell
+RAGUEL_URL="https://github.com/abhishekkr/raguel/archive/master.tar.gz"
+RAGUEL_TGZ="raguel.tgz"
+RAGUEL_SRC="./raguel-master/src/raguel.sh"
+
+curl -kL -o $RAGUEL_TGZ $RAGUEL_URL
+tar -zxf raguel.tgz
+
+cat > ./install_htop << EOF
+#!bash
+
+. $RAGUEL_SRC --source-only
+
+auto_install htop
+EOF
+
+bash ./install_htop
+```
