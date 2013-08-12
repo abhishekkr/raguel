@@ -20,6 +20,10 @@ test_if_dir(){
   expected='A'
   assertEquals "${expected}" "${generated}"
 
+  generated=`if_dir "${BASEDIR}_tmp/" then_run "echo 'A'"`
+  expected=''
+  assertEquals "${expected}" "${generated}"
+
   if_dir "${BASEDIR}_which_are_not_there.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected='false'
@@ -110,6 +114,10 @@ test_if_not_dir(){
 
   generated=`if_not_dir "${BASEDIR}_not_there/" then_run "echo 'A'"`
   expected='A'
+  assertEquals "${expected}" "${generated}"
+
+  generated=`if_not_dir "${BASEDIR}/" then_run "echo 'A'"`
+  expected=''
   assertEquals "${expected}" "${generated}"
 
   if_not_dir "${BASEDIR}_which_are_not_there.sh"

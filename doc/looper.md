@@ -14,7 +14,7 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 . "${RAGUEL_DIR}/looper.sh"
 ```
 
-###+++++
+***
 
 #### repeat_run
 
@@ -28,4 +28,4 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 repeat_run 5 "echo 'Running repeat_run with counter 5.'"
 ```
 
-###+++++
+***

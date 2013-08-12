@@ -14,7 +14,7 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 . "${RAGUEL_DIR}/display.sh"
 ```
 
-###+++++
+***
 
 #### shout
 
@@ -28,4 +28,4 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 shout "Shouting inside banner."
 ```
 
-###+++++
+***

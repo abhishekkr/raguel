@@ -13,7 +13,7 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 . "${RAGUEL_DIR}/checker.sh"
 ```
 
-###+++++
+***
 
 #### then_run
 
@@ -32,7 +32,7 @@ echo "and after its run RAGUEL_IF_EQUAL_STATE gets set to \
 echo ''
 ```
 
-###+++++
+***
 
 
 #### else_run
@@ -52,7 +52,7 @@ echo "and after its run RAGUEL_IF_EQUAL_STATE gets set to \
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_equal
@@ -77,7 +77,7 @@ else_run "echo '$USER is user'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_not_equal
@@ -102,7 +102,7 @@ else_run "echo '$USER is user'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if else if [or] chaining if
@@ -135,7 +135,7 @@ then_if_dir "$HOME/.vim"
 then_run "echo 'You have VIM .vimrc and .vim config in your HOME dir.'"
 ```
 
-###+++++
+***
 
 
 #### end_if
@@ -162,7 +162,7 @@ end_if
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_file
@@ -184,7 +184,7 @@ else_run "echo 'No BASH RC file found in HOME dir.'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_not_file
@@ -204,7 +204,7 @@ else_run "echo 'You have BASH Profile file in your HOME dir.'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_dir
@@ -226,7 +226,7 @@ else_run "echo 'Home dir need to be created.'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_not_dir
@@ -246,7 +246,7 @@ else_run "echo 'Your VIM config dir is present in Home dir'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_var
@@ -268,7 +268,7 @@ else_run "echo 'Var HOME not present.'"
 echo ''
 ```
 
-###+++++
+***
 
 
 #### if_not_var
@@ -288,4 +288,4 @@ else_run "echo 'Var HOMESS not present.'"
 echo ''
 ```
 
-###+++++
+***
