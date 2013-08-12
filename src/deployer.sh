@@ -30,7 +30,7 @@ _deployer_git_rollback(){
 deployer_latest(){
     export RAGUEL_DEPLOY_SOURCE_GIT=$1
     export RAGUEL_DEPLOY_SOURCE_DIR=$2
-    export RAGUEL_DEPLOY_BACKUP_DIR="\${SOURCE_DIR}.original"
+    export RAGUEL_DEPLOY_BACKUP_DIR="\${RAGUEL_DEPLOY_SOURCE_DIR}.original"
 
     if_not_dir $RAGUEL_DEPLOY_SOURCE_DIR
         then_run "_deployer_git_clone"
@@ -41,8 +41,8 @@ deployer_latest(){
 # rollback to previous code
 deployer_rollback(){
     export RAGUEL_DEPLOY_SOURCE_DIR=$1
-    export RAGUEL_DEPLOY_BACKUP_DIR="\${SOURCE_DIR}.original"
-    export RAGUEL_DEPLOY_BROKEN_DIR="\${SOURCE_DIR}.broken"
+    export RAGUEL_DEPLOY_BACKUP_DIR="\${RAGUEL_DEPLOY_SOURCE_DIR}.original"
+    export RAGUEL_DEPLOY_BROKEN_DIR="\${RAGUEL_DEPLOY_SOURCE_DIR}.broken"
 
     if_dir $RAGUEL_DEPLOY_BACKUP_DIR
         then_run "_deployer_git_rollback"
