@@ -28,8 +28,8 @@ _deployer_git_rollback(){
 
 # deploy latest commit and backup current code
 deployer_latest(){
-    export RAGUEL_DEPLOY_SOURCE_GIT=$1
-    export RAGUEL_DEPLOY_SOURCE_DIR=$2
+    export RAGUEL_DEPLOY_SOURCE_GIT="$1"
+    export RAGUEL_DEPLOY_SOURCE_DIR="$2"
     export RAGUEL_DEPLOY_BACKUP_DIR="${RAGUEL_DEPLOY_SOURCE_DIR}.original"
 
     if_not_dir $RAGUEL_DEPLOY_SOURCE_DIR
