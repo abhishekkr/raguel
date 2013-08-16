@@ -196,10 +196,13 @@ echo ''
 > * if_not_dir, then_if_not_dir, else_if_not_dir
 
 > Check for File being Empty in size
-> * if_empty, then_if_empty, else_if_empty
+> * if_file_empty, then_if_file_empty, else_if_file_empty
 
 > Check for File being not empty in size
-> * if_not_empty, then_if_not_empty, else_if_not_empty
+> * if_not_file_empty, then_if_not_file_empty, else_if_not_file_empty
+
+> Check for File being not empty in size
+> * if_not_file_executable, then_if_not_file_executable, else_if_not_file_executable
 
 
 ***
