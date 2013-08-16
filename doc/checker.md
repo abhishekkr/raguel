@@ -208,10 +208,16 @@ echo ''
 > * if_not_file_executable, then_if_not_file_executable, else_if_not_file_executable
 
 > Check for File being Writable
-> * if_not_file_writable, then_if_not_file_writable, else_if_not_file_writable
+> * if_file_writable, then_if_file_writable, else_if_file_writable
 
 > Check for File being not Writable
 > * if_not_file_writable, then_if_not_file_writable, else_if_not_file_writable
+
+> Check for File being SymLink
+> * if_link, then_if_link, else_if_link
+
+> Check for File being not SymLink
+> * if_not_link, then_if_not_link, else_if_not_link
 
 
 ***
