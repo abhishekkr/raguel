@@ -195,14 +195,23 @@ echo ''
 > Check for Directory not existing
 > * if_not_dir, then_if_not_dir, else_if_not_dir
 
-> Check for File being Empty in size
+> Check for File being empty in size
 > * if_file_empty, then_if_file_empty, else_if_file_empty
 
 > Check for File being not empty in size
 > * if_not_file_empty, then_if_not_file_empty, else_if_not_file_empty
 
-> Check for File being not empty in size
+> Check for File being Executable
+> * if_file_executable, then_if_file_executable, else_if_file_executable
+
+> Check for File being not Executable
 > * if_not_file_executable, then_if_not_file_executable, else_if_not_file_executable
+
+> Check for File being Writable
+> * if_not_file_writable, then_if_not_file_writable, else_if_not_file_writable
+
+> Check for File being not Writable
+> * if_not_file_writable, then_if_not_file_writable, else_if_not_file_writable
 
 
 ***
