@@ -184,67 +184,23 @@ else_run "echo 'No BASH RC file found in HOME dir.'"
 echo ''
 ```
 
-***
+##### More Checks for FILE working in similar way
 
+> Check for Regular File not existing
+> * if_not_file, then_if_not_file, else_if_not_file
 
-#### if_not_file
+> Check for Directory existing
+> * if_dir, then_if_dir, else_if_dir
 
-` # it also has 'then_if_not_file' & 'else_if_not_file' for chaining if `
+> Check for Directory not existing
+> * if_not_dir, then_if_not_dir, else_if_not_dir
 
-##### syntax
+> Check for File being Empty in size
+> * if_empty, then_if_empty, else_if_empty
 
-` # if_not_file <path_to_file> `
+> Check for File being not empty in size
+> * if_not_empty, then_if_not_empty, else_if_not_empty
 
-##### usage
-
-```Shell
-if_not_file "$HOME/.bash_profile"
-then_run "echo 'No BASH Profile file found in HOME dir.'"
-else_run "echo 'You have BASH Profile file in your HOME dir.'"
-echo ''
-```
-
-***
-
-
-#### if_dir
-
-` # it also has 'then_if_not_dir' & 'else_if_not_dir' for chaining if `
-
-##### Usable in all similar patterns with 'if_equal'
-
-##### syntax
-
-` # if_dir <path_to_dir> `
-
-##### usage
-
-```Shell
-if_dir $HOME
-then_run "echo 'Your Home dir is already present.'"
-else_run "echo 'Home dir need to be created.'"
-echo ''
-```
-
-***
-
-
-#### if_not_dir
-
-` # it also has 'then_if_not_dir' & 'else_if_not_dir' for chaining if `
-
-##### syntax
-
-` # if_not_dir <path_to_file> `
-
-##### usage
-
-```Shell
-if_not_dir "$HOME/.vim"
-then_run "echo 'No VIM config present in Home dir.'"
-else_run "echo 'Your VIM config dir is present in Home dir'"
-echo ''
-```
 
 ***
 
