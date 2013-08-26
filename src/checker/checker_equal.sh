@@ -3,7 +3,7 @@
 ## if_equal
 if_equal(){
   RAGUEL_IF_EQUAL_STATE=
-  if_cmd="${@:3}"
+  _arg_cmd="${@:3}"
 
   if [[ "${1}" == "${2}" ]]; then
     export RAGUEL_IF_EQUAL_STATE='true'
@@ -11,7 +11,7 @@ if_equal(){
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
   if [[ $# -ne 2 ]]; then
-    eval "${if_cmd}"
+    eval "${_arg_cmd}"
   fi
 }
 
@@ -32,7 +32,7 @@ else_if_equal(){
 # if_not_equal
 if_not_equal(){
   RAGUEL_IF_EQUAL_STATE=
-  if_not_cmd="${@:3}"
+  _arg_not_cmd="${@:3}"
 
   if [[ "${1}" != "${2}" ]]; then
     export RAGUEL_IF_EQUAL_STATE='true'
@@ -40,7 +40,7 @@ if_not_equal(){
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
   if [[ $# -ne 2 ]]; then
-    eval "${if_not_cmd}"
+    eval "${_arg_not_cmd}"
   fi
 }
 

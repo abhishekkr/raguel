@@ -3,7 +3,7 @@
 ## if_file_writable
 if_file_writable(){
   RAGUEL_IF_EQUAL_STATE=
-  if_cmd="${@:2}"
+  _arg_cmd="${@:2}"
 
   if [[ -w "${1}" ]]; then
     export RAGUEL_IF_EQUAL_STATE='true'
@@ -11,7 +11,7 @@ if_file_writable(){
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
   if [[ $# -ne 1 ]]; then
-    eval "${if_cmd}"
+    eval "${_arg_cmd}"
   fi
 }
 
@@ -32,7 +32,7 @@ else_if_file_writable(){
 ## if_not_file_writable
 if_not_file_writable(){
   RAGUEL_IF_EQUAL_STATE=
-  if_not_cmd="${@:2}"
+  _arg_not_cmd="${@:2}"
 
   if [[ ! -w "${1}" ]]; then
     export RAGUEL_IF_EQUAL_STATE='true'
@@ -40,7 +40,7 @@ if_not_file_writable(){
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
   if [[ $# -ne 1 ]]; then
-    eval "${if_not_cmd}"
+    eval "${_arg_not_cmd}"
   fi
 }
 

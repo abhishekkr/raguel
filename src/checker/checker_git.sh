@@ -13,7 +13,7 @@ fi
 ## if_git_latest
 if_git_latest(){
   RAGUEL_IF_EQUAL_STATE=
-  if_cmd="${@:2}"
+  _arg_cmd="${@:2}"
 
   cd $1 ; local_sha ; remote_sha
   if [[ $RAGUEL_GIT_REMOTE_SHA == $RAGUEL_GIT_LOCAL_SHA ]]; then
@@ -22,7 +22,7 @@ if_git_latest(){
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
   if [[ $# -ne 1 ]]; then
-    eval "${if_cmd}"
+    eval "${_arg_cmd}"
   fi
 }
 
@@ -43,7 +43,7 @@ else_if_git_latest(){
 ## if_git_latest
 if_not_git_latest(){
   RAGUEL_IF_EQUAL_STATE=
-  if_cmd="${@:2}"
+  _arg_cmd="${@:2}"
 
   cd $1 ; local_sha ; remote_sha
   if [[ $RAGUEL_GIT_REMOTE_SHA != $RAGUEL_GIT_LOCAL_SHA ]]; then
@@ -52,7 +52,7 @@ if_not_git_latest(){
     export RAGUEL_IF_EQUAL_STATE='false'
   fi
   if [[ $# -ne 1 ]]; then
-    eval "${if_cmd}"
+    eval "${_arg_cmd}"
   fi
 }
 
