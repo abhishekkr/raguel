@@ -7,9 +7,9 @@ if [[ -z "$RAGUEL_DIR" ]]; then
     export RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
   fi
 fi
-. "${RAGUEL_DIR}/distro_manager.sh"
 . "${RAGUEL_DIR}/display.sh"
 . "${RAGUEL_DIR}/checker/checker_var.sh"
+. "${RAGUEL_DIR}/configurator/distro_manager.sh"
 
 # to auto install all provided packages as arguments
 auto_install(){

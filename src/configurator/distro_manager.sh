@@ -33,3 +33,5 @@ load_distro_specifics(){
     export RAGUEL_PACKAGE_UNINSTALL=
   fi
 }
+
+load_distro_specifics
