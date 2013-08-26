@@ -32,6 +32,8 @@ load_distro_specifics(){
     export RAGUEL_PACKAGE_INSTALL=
     export RAGUEL_PACKAGE_UNINSTALL=
   fi
+  export RAGUEL_NODENAME=`uname -n`
+  export RAGUEL_ARCH=`uname -m`
 }
 
 load_distro_specifics
