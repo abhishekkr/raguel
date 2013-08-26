@@ -305,3 +305,47 @@ echo ''
 ```
 
 ***
+
+
+#### if_cmd
+
+` # it also has 'then_if_cmd' & 'else_if_cmd' for chaining if `
+
+##### Usable in all similar patterns with 'if_equal'
+
+##### syntax
+
+` # if_cmd $COMMAND_NAME `
+
+##### usage
+
+```Shell
+if_cmd 'htop'
+then_run "echo 'You can move ahead to use it.'"
+else_run "echo 'You may install htop here.'"
+echo ''
+```
+
+***
+
+
+#### if_not_cmd
+
+` # it also has 'then_if_not_cmd' & 'else_if_not_cmd' for chaining if `
+
+##### Usable in all similar patterns with 'if_not_equal'
+
+##### syntax
+
+` # if_not_cmd $COMMAND_NAME `
+
+##### usage
+
+```Shell
+if_not_cmd 'htop'
+then_run "echo 'You may install htop here.'"
+else_run "echo 'You can move ahead to use it.'"
+echo ''
+```
+
+***
