@@ -9,5 +9,5 @@ local_sha(){
 remote_sha(){
   if_not_var $RAGUEL_GIT_REMOTE_BRANCH
     then_run export RAGUEL_GIT_REMOTE_BRANCH='master'
-  export RAGUEL_GIT_REMOTE_SHA=`git ls-remote origin -h refs/heads/${GIT_REMOTE_BRANCH} | cut -f1`
+  export RAGUEL_GIT_REMOTE_SHA=`git ls-remote origin -h refs/heads/${RAGUEL_GIT_REMOTE_BRANCH} | cut -f1`
 }
