@@ -5,7 +5,7 @@
 ### setUp; tearDown ###
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
 }
 
 ### checker test for equality ###
@@ -23,13 +23,13 @@ test_if_equal(){
 }
 
 test_then_if_equal(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_equal 'abc' 'abc'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_equal 'abc' 'abcde'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -61,13 +61,13 @@ test_then_if_equal(){
 }
 
 test_else_if_equal(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_equal 'abc' 'abc'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_equal 'abc' 'abcde'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -147,13 +147,13 @@ test_if_not_equal_run(){
 }
 
 test_then_if_not_equal(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_equal 'abc' 'abc'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_equal 'abc' 'abcde'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -185,13 +185,13 @@ test_then_if_not_equal(){
 }
 
 test_else_if_not_equal(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_equal 'abc' 'abc'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_equal 'abc' 'abcde'
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''

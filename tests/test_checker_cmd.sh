@@ -5,7 +5,7 @@
 ### setUp; tearDown ###
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
 }
 
 ### checker test for equality ###
@@ -31,13 +31,13 @@ test_if_cmd(){
 }
 
 test_then_if_cmd(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_cmd "bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_cmd "n0bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -69,13 +69,13 @@ test_then_if_cmd(){
 }
 
 test_else_if_cmd(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_cmd "bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_cmd "n0bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -127,13 +127,13 @@ test_if_not_cmd(){
 }
 
 test_then_if_not_cmd(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_cmd "bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_cmd "n0bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -165,13 +165,13 @@ test_then_if_not_cmd(){
 }
 
 test_else_if_not_cmd(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_cmd "bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_cmd "n0bash"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''

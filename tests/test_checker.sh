@@ -5,7 +5,7 @@
 ### setUp; tearDown ###
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
 }
 
 ### checker test ###
@@ -43,7 +43,7 @@ test_else_run(){
 }
 
 test_end_if(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   end_if
   assertEquals "$RAGUEL_IF_EQUAL_STATE" ''
 

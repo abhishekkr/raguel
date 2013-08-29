@@ -12,7 +12,7 @@ setUp(){
 }
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   rm -f ./DELETE_THIS_FILE_WHEN_SEEN
   rm -f ./DELETE_THIS_FILE_WHEN_SEEN_READ
 }
@@ -36,13 +36,13 @@ test_if_file_readable(){
 }
 
 test_then_if_file_readable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_file_readable ./DELETE_THIS_FILE_WHEN_SEEN_READ
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_file_readable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -74,13 +74,13 @@ test_then_if_file_readable(){
 }
 
 test_else_if_file_readable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_file_readable ./DELETE_THIS_FILE_WHEN_SEEN_READ
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_file_readable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -128,13 +128,13 @@ test_if_not_file_readable(){
 }
 
 test_then_if_not_file_readable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_file_readable ./DELETE_THIS_FILE_WHEN_SEEN_READ
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_file_readable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -166,13 +166,13 @@ test_then_if_not_file_readable(){
 }
 
 test_else_if_not_file_readable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_file_readable ./DELETE_THIS_FILE_WHEN_SEEN_READ
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_file_readable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''

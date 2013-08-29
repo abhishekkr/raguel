@@ -5,7 +5,7 @@
 ### setUp; tearDown ###
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
 }
 
 ### checker test for equality ###
@@ -27,13 +27,13 @@ test_if_var(){
 }
 
 test_then_if_var(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_var "$USER"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_var "$USERSS"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -65,13 +65,13 @@ test_then_if_var(){
 }
 
 test_else_if_var(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_var "$USER"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_var "$USERSS"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -119,13 +119,13 @@ test_if_not_var(){
 }
 
 test_then_if_not_var(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_var "$USER"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_var "$USERSS"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -157,13 +157,13 @@ test_then_if_not_var(){
 }
 
 test_else_if_not_var(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_var "$USER"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_var "$USERSS"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''

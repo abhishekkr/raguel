@@ -5,7 +5,7 @@
 ### setUp; tearDown ###
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
 }
 
 ### checker test for equality ###
@@ -27,13 +27,13 @@ test_if_file(){
 }
 
 test_then_if_file(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_file "$BASEDIR/run_tests.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_file "$BASEDIR/run_tests_which_are_not_there.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -65,13 +65,13 @@ test_then_if_file(){
 }
 
 test_else_if_file(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_file "$BASEDIR/run_tests.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_file "$BASEDIR/run_tests_which_are_not_there.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -119,13 +119,13 @@ test_if_not_file(){
 }
 
 test_then_if_not_file(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_file "$BASEDIR/run_tests.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_file "$BASEDIR/run_tests_which_are_not_there.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -157,13 +157,13 @@ test_then_if_not_file(){
 }
 
 test_else_if_not_file(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_file "$BASEDIR/run_tests.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_file "$BASEDIR/run_tests_which_are_not_there.sh"
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''

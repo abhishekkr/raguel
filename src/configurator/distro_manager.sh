@@ -28,9 +28,9 @@ load_distro_specifics(){
     export RAGUEL_PACKAGE_UNINSTALL='zypper remove -y '
   else
     echo "Raguel is not able to find signature of this Distro."
-    export RAGUEL_DISTRO_TYPE=
-    export RAGUEL_PACKAGE_INSTALL=
-    export RAGUEL_PACKAGE_UNINSTALL=
+    export RAGUEL_DISTRO_TYPE='NONE'
+    export RAGUEL_PACKAGE_INSTALL='echo "Not supported yet."'
+    export RAGUEL_PACKAGE_UNINSTALL='echo "Not supported yet."'
   fi
   export RAGUEL_NODENAME=`uname -n`
   export RAGUEL_ARCH=`uname -m`

@@ -3,7 +3,7 @@
 # then_run
 then_run(){
   if [[ $RAGUEL_IF_EQUAL_STATE == 'true' ]]; then
-    export RAGUEL_IF_EQUAL_STATE=''
+    unset RAGUEL_IF_EQUAL_STATE
     eval "$@"
   fi
 }
@@ -11,7 +11,7 @@ then_run(){
 # else_run
 else_run(){
   if [[ $RAGUEL_IF_EQUAL_STATE == 'false' ]]; then
-    export RAGUEL_IF_EQUAL_STATE=''
+    unset RAGUEL_IF_EQUAL_STATE
     eval "$@"
   fi
 }
@@ -29,7 +29,8 @@ if [[ -z "$RAGUEL_DIR" ]]; then
     export RAGUEL_DIR=$(dirname "${BASH_SOURCE[0]}")
   fi
 fi
-for check_plugins in `ls $RAGUEL_DIR/checker/*.sh`
+
+for check_plugins in $RAGUEL_DIR/checker/*.sh ;
 do
   . $check_plugins
 done

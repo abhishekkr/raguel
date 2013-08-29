@@ -10,7 +10,7 @@ setUp(){
 }
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   rm -f ./DELETE_THIS_FILE_WHEN_SEEN
   rm -f ./DELETE_THIS_FILE_WHEN_SEEN_LINK
 }
@@ -34,13 +34,13 @@ test_if_link(){
 }
 
 test_then_if_link(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_link ./DELETE_THIS_FILE_WHEN_SEEN_LINK
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_link ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -72,13 +72,13 @@ test_then_if_link(){
 }
 
 test_else_if_link(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_link ./DELETE_THIS_FILE_WHEN_SEEN_LINK
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_link ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -126,13 +126,13 @@ test_if_not_link(){
 }
 
 test_then_if_not_link(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_link ./DELETE_THIS_FILE_WHEN_SEEN_LINK
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_link ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -164,13 +164,13 @@ test_then_if_not_link(){
 }
 
 test_else_if_not_link(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_link ./DELETE_THIS_FILE_WHEN_SEEN_LINK
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_link ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''

@@ -12,7 +12,7 @@ setUp(){
 }
 
 tearDown(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   rm -f ./DELETE_THIS_FILE_WHEN_SEEN
   rm -f ./DELETE_THIS_FILE_WHEN_SEEN_EXEC
 }
@@ -36,13 +36,13 @@ test_if_file_executable(){
 }
 
 test_then_if_file_executable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_file_executable ./DELETE_THIS_FILE_WHEN_SEEN_EXEC
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_file_executable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -74,13 +74,13 @@ test_then_if_file_executable(){
 }
 
 test_else_if_file_executable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_file_executable ./DELETE_THIS_FILE_WHEN_SEEN_EXEC
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_file_executable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -128,13 +128,13 @@ test_if_not_file_executable(){
 }
 
 test_then_if_not_file_executable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_file_executable ./DELETE_THIS_FILE_WHEN_SEEN_EXEC
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   then_if_not_file_executable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
@@ -166,13 +166,13 @@ test_then_if_not_file_executable(){
 }
 
 test_else_if_not_file_executable(){
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_file_executable ./DELETE_THIS_FILE_WHEN_SEEN_EXEC
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
   assertEquals "${expected}" "${generated}"
 
-  export RAGUEL_IF_EQUAL_STATE=''
+  unset RAGUEL_IF_EQUAL_STATE
   else_if_not_file_executable ./DELETE_THIS_FILE_WHEN_SEEN
   generated=$RAGUEL_IF_EQUAL_STATE
   expected=''
