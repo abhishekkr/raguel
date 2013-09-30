@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Raguel by abhishekkr</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Raguel</h1>
+        <h2>raguel - the shell archangel</h2>
+        <a href="https://github.com/abhishekkr/raguel" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
+<a name="raguel" class="anchor" href="#raguel"><span class="octicon octicon-link"></span></a>raguel</h3>
+
+<p>Mythological Context: <a href="http://en.wikipedia.org/wiki/Raguel_(archangel)">http://en.wikipedia.org/wiki/Raguel_(archangel)</a>
+Reference: ArchAngel, Name means The friend of God.</p>
+
+<p>It's here to be the friend of Shell Gods to create minion scripts to serve
+the SYSTEMS.</p>
+
+<pre lang="ASCII"><code>                     \\                        //\\   _______________________
+ || /===  |====||   |====}}  \\  \\    //===     ||   |                     |
+ ||//          ||   \\__//   ||  ||    \\__      ||   | Shell Script Friend |
+ ||       ||===||   //  \\   ||  ||    //        ||   | Yes It's Old School |
+ ||       ||___||   \\___}}   \\_||//  \\__//   _||   |_____________________|
+
+</code></pre>
+
+<p>For ways it can improve Shell Scripting, refer Wiki.</p>
+
+<p>It's best suited to Bourne Shell,
+though it's made compatible to others as much possible.</p>
+
+<hr><hr><h3>
+<a name="spells-available" class="anchor" href="#spells-available"><span class="octicon octicon-link"></span></a>Spells available:</h3>
+
+<h4>
+<a name="display" class="anchor" href="#display"><span class="octicon octicon-link"></span></a><a href="https://github.com/abhishekkr/raguel/blob/master/doc/display.md">Display</a>
+</h4>
+
+<ul>
+<li>Shout out a message as a Banner</li>
+</ul><pre lang="Shell"><code>  shout $MESSAGE
+  RAGUEL_SHOUT_CHAR='~' RAGUEL_SHOUT_CHAR_COUNT=50 shout $MESSAGE
+</code></pre>
+
+<h4>
+<a name="looper" class="anchor" href="#looper"><span class="octicon octicon-link"></span></a><a href="https://github.com/abhishekkr/raguel/blob/master/doc/looper.md">Looper</a>
+</h4>
+
+<ul>
+<li>Loop a given command run for given count</li>
+</ul><pre lang="Shell"><code>  repeat_run $TIMES_TO_REPEAT "$COMMAND_TO_RUN"
+</code></pre>
+
+<h4>
+<a name="git" class="anchor" href="#git"><span class="octicon octicon-link"></span></a><a href="https://github.com/abhishekkr/raguel/blob/master/doc/git.md">Git</a>
+</h4>
+
+<ul>
+<li>Set Env Var RAGUEL_GIT_LOCAL_SHA to latest Local SHA in Current DIR</li>
+</ul><pre lang="Shell"><code>  local_sha
+</code></pre>
+
+<ul>
+<li>Set Env Var RAGUEL_GIT_REMOTE_SHA to latest Remote SHA in Current DIR</li>
+</ul><pre lang="Shell"><code>  remote_sha
+</code></pre>
+
+<h4>
+<a name="configurator" class="anchor" href="#configurator"><span class="octicon octicon-link"></span></a><a href="https://github.com/abhishekkr/raguel/blob/master/doc/configurator.md">Configurator</a>
+</h4>
+
+<ul>
+<li>Non-Interactive Package Manager</li>
+</ul><pre lang="Shell"><code>  auto_install $PackageName
+
+  &gt; auto_install, auto_uninstall
+</code></pre>
+
+<ul>
+<li>Info ENV Var for Distro</li>
+</ul><pre lang="Shell"><code>  $RAGUEL_DISTRO_TYPE : telling what distro family is RHEL, Debian, etc.
+
+  $RAGUEL_PACKAGE_INSTALL : setting the auto-install command here
+
+  $RAGUEL_PACKAGE_UNINSTALL : setting the auto-uninstall command here
+
+  $RAGUEL_NODENAME : the nodename grabbed from uname goes here
+
+  $RAGUEL_ARCH : architecture information grabbed from uname goes here
+</code></pre>
+
+<h4>
+<a name="checker" class="anchor" href="#checker"><span class="octicon octicon-link"></span></a><a href="https://github.com/abhishekkr/raguel/blob/master/doc/checker.md">Checker</a>
+</h4>
+
+<pre lang="Shell"><code>  All the checkers have if_{check}, then_if_{check}, else_if_{check}, if_not_{check}, then_if_not_{check}, else_if_not_{check}
+</code></pre>
+
+<pre lang="Shell"><code>  So every check has a negation check version. And they both have then_, else_ checks for enabling chaining of checks as in get &amp;&amp;, || boolean functionality among checks.
+</code></pre>
+
+<ul>
+<li>then_run , else_run , end_if</li>
+</ul><pre lang="Shell"><code>  Every check can have following command on same line to run if check passes. Otherwise use then_run, else_run in combination with any check. It also provides 'end_if' to explicitly close Check block and make look good.
+</code></pre>
+
+<h5>
+<a name="the-example-shown-for-if_equal-can-be-used-in-permutationcombination-with-any-other-checks" class="anchor" href="#the-example-shown-for-if_equal-can-be-used-in-permutationcombination-with-any-other-checks"><span class="octicon octicon-link"></span></a>The example shown for if_equal can be used in permutation/combination with any other checks.</h5>
+
+<ul>
+<li>Check for equality of 2 arguments</li>
+</ul><pre lang="Shell"><code>  if_equal $ARG1 $ARG2 "$CMD_IF_PASSED"
+
+  if_equal $ARG1 $ARG2
+  then_run "$CMD_IF_PASSED"
+
+  if_equal $ARG1 $ARG2
+  else_run "$CMD_IF_FAILED"
+
+  if_equal $ARG1 $ARG2
+  then_run "$CMD_IF_PASSED"
+  else_run "$CMD_IF_FAILED"
+
+  if_equal $ARG1 $ARG2
+  then_run "$CMD_IF_PASSED"
+  else_run "$CMD_IF_FAILED"
+  end_if
+
+  if_equal $ARG1 $ARG2
+  then_if_equal $ARG3 $ARG4
+  then_if_equal $ARG5 $ARG6
+  then_run "$CMD_IF_PASSED_1"
+  else_if_equal $ARG7 $ARG8
+  then_run "$CMD_IF_PASSED_2"
+  else_run "$CMD_IF_FAILED"
+  end_if
+
+  &gt; spells: if_equal, then_if_equal, else_if_equal, if_not_equal, then_if_not_equal, else_if_not_equal
+</code></pre>
+
+<ul>
+<li>Check for Regular File existence</li>
+</ul><pre lang="Shell"><code>  if_file $FILEPATH
+
+  &gt; spells: if_file, then_if_file, else_if_file, if_not_file, then_if_not_file, else_if_not_file
+</code></pre>
+
+<ul>
+<li>Check for Directory existence</li>
+</ul><pre lang="Shell"><code>  if_dir $DIRNAME
+
+  &gt; spells: if_dir, then_if_dir, else_if_dir, if_not_dir, then_if_not_dir, else_if_not_dir
+</code></pre>
+
+<ul>
+<li>Check for File being empty in size</li>
+</ul><pre lang="Shell"><code>  if_file_empty $FILEPATH
+
+  &gt; spells: if_file_empty, then_if_file_empty, else_if_file_empty, if_not_file_empty, then_if_not_file_empty, else_if_not_file_empty
+</code></pre>
+
+<ul>
+<li>Check for File being Executable</li>
+</ul><pre lang="Shell"><code>  if_file_executable $FILENAME
+
+  &gt; spells: if_file_executable, then_if_file_executable, else_if_file_executable, if_not_file_executable, then_if_not_file_executable, else_if_not_file_executable
+</code></pre>
+
+<ul>
+<li>Check for File being Writable</li>
+</ul><pre lang="Shell"><code>  if_file_writable $FILENAME
+
+  &gt; spells: if_file_writable, then_if_file_writable, else_if_file_writable, if_not_file_writable, then_if_not_file_writable, else_if_not_file_writable
+</code></pre>
+
+<ul>
+<li>Check for File being SymLink</li>
+</ul><pre lang="Shell"><code>  if_link $FILENAME
+
+  &gt; spells: if_link, then_if_link, else_if_link, if_not_link, then_if_not_link, else_if_not_link
+</code></pre>
+
+<ul>
+<li>Check for Env Variable being defined</li>
+</ul><pre lang="Shell"><code>  if_var $VARNAME
+
+  &gt; spells: if_var, then_if_var, else_if_var, if_not_var, then_if_not_var, else_if_not_var
+</code></pre>
+
+<ul>
+<li>Check if given Git Repo dir has latest RAGUEL_GIT_REMOTE_BRANCH changes</li>
+</ul><pre lang="Shell"><code>  if_git_latest $VARNAME
+
+  &gt; spells: if_git_latest, then_if_git_latest, else_if_git_latest, if_not_git_latest, then_if_not_git_latest, else_if_not_git_latest
+</code></pre>
+
+<ul>
+<li>Check if a particular System Command is accessible or not</li>
+</ul><pre lang="Shell"><code>  if_cmd $CMDNAME
+
+  &gt; spells: if_cmd, then_if_cmd, else_if_cmd, if_not_cmd, then_if_not_cmd, else_if_not_cmd
+</code></pre>
+
+<h4>
+<a name="deployer" class="anchor" href="#deployer"><span class="octicon octicon-link"></span></a><a href="https://github.com/abhishekkr/raguel/blob/master/doc/deployer.md">Deployer</a>
+</h4>
+
+<ul>
+<li>
+<p>Get the latest Code at DeployDir from the Remote Repo and backup current Repo, need to run service reset explicitly</p>
+
+<pre lang="Shell"><code>deploy_latest $GIT_URL $DEPLOY_DIR
+</code></pre>
+</li>
+<li><p>Rollback the DeployDir to BackUp, need to run service reset explicitly</p></li>
+</ul><pre lang="Shell"><code>  deploy_rollback $DEPLOY_DIR
+</code></pre>
+
+<p>Refer <a href="https://github.com/abhishekkr/raguel/blob/master/examples/deploy.dead.drop_with_deployer.sh">this EXAMPLE</a> on how to get rolling with it.</p>
+
+<hr><hr><h4>
+<a name="quick-examples" class="anchor" href="#quick-examples"><span class="octicon octicon-link"></span></a>Quick Examples:</h4>
+
+<pre lang="Shell"><code>#!bash
+
+RAGUEL_URL="https://github.com/abhishekkr/raguel/archive/master.tar.gz"
+RAGUEL_TGZ="raguel.tgz"
+RAGUEL_SRC="./raguel-master/src/raguel.sh"
+
+curl -kL -o $RAGUEL_TGZ $RAGUEL_URL
+tar -zxf raguel.tgz
+
+cat &gt; ./setup_my_box &lt;&lt; EOF
+#!bash
+
+. $RAGUEL_SRC --source-only
+GEMRC_URL="https://raw.github.com/abhishekkr/tux-svc-mux/master/rc/gemrc"
+
+
+if_not_file "\$HOME/.gemrc"
+  then_run "curl -kL -o \$HOME/.gemrc \$GEMRC_URL"
+
+if_not_cmd "ruby" auto_install ruby
+if_not_cmd "gem" auto_install rubygems
+if_not_cmd "bundle" gem install bundler
+EOF
+
+bash ./setup_my_box
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/abhishekkr/raguel/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/abhishekkr/raguel/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/abhishekkr/raguel"></a> is maintained by <a href="https://github.com/abhishekkr">abhishekkr</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
