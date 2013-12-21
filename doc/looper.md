@@ -29,3 +29,17 @@ repeat_run 5 "echo 'Running repeat_run with counter 5.'"
 ```
 
 ***
+
+#### dir_list_run
+
+##### syntax
+
+` # dir_list_run "<path_to_dir>" "<command_to_run_with_file_entries_as_target>" `
+
+##### usage
+
+```Shell
+dir_list_run /tmp "la -lah"
+```
+
+***
