@@ -232,9 +232,9 @@ GEMRC_URL="https://raw.github.com/abhishekkr/tux-svc-mux/master/rc/gemrc"
 if_not_file "\$HOME/.gemrc"
   then_run "curl -kL -o \$HOME/.gemrc \$GEMRC_URL"
 
-if_not_cmd "ruby" auto_install ruby
-if_not_cmd "gem" auto_install rubygems
-if_not_cmd "bundle" gem install bundler
+if_not_cmd "ruby" then_run "auto_install ruby"
+if_not_cmd "gem" then_run "auto_install rubygems"
+if_not_cmd "bundle" then_run "gem install bundler"
 EOF
 
 bash ./setup_my_box
