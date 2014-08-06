@@ -15,7 +15,7 @@ repeat_run(){
 
 dir_list_run(){
   if [[ $# -lt 2 ]]; then
-    echo "SYNTAX: dir_list_run <times> <command>"
+    echo "SYNTAX: dir_list_run <dir-path> <command>"
     return
   fi
 
