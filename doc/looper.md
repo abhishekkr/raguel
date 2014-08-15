@@ -32,6 +32,9 @@ repeat_run 5 "echo 'Running repeat_run with counter 5.'"
 
 #### dir_list_run
 
+It enables you to run all "dir $path" entries to a given command as param.
+Set ENV var RAGUEL_PARALLEL=true to give it a non-blocking feel by bg-proc every command run.
+
 ##### syntax
 
 ` # dir_list_run "<path_to_dir>" "<command_to_run_with_file_entries_as_target>" `
