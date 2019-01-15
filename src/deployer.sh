@@ -16,9 +16,10 @@ _deployer_git_clone(){
 _deployer_git_latest(){
     rm -rf $RAGUEL_DEPLOY_BACKUP_DIR
     cp -ar $RAGUEL_DEPLOY_SOURCE_DIR $RAGUEL_DEPLOY_BACKUP_DIR
-    cd $RAGUEL_DEPLOY_SOURCE_DIR
+    pushd $RAGUEL_DEPLOY_SOURCE_DIR
     git checkout .
     git pull
+    popd
 }
 
 _deployer_git_rollback(){
@@ -36,6 +37,8 @@ deployer_latest(){
         then_run "_deployer_git_clone"
     else_if_not_git_latest $RAGUEL_DEPLOY_SOURCE_DIR
         then_run "_deployer_git_latest"
+
+    unset RAGUEL_DEPLOY_SOURCE_GIT RAGUEL_DEPLOY_SOURCE_DIR RAGUEL_DEPLOY_BACKUP_DIR
 }
 
 # rollback to previous code
@@ -46,4 +49,6 @@ deployer_rollback(){
 
     if_dir $RAGUEL_DEPLOY_BACKUP_DIR
         then_run "_deployer_git_rollback"
+
+    unset RAGUEL_DEPLOY_SOURCE_GIT RAGUEL_DEPLOY_BACKUP_DIR RAGUEL_DEPLOY_BROKEN_DIR
 }

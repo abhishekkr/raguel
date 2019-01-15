@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+###
+# currently doesn't allow nesting of if_equal... blocks
+###
+
 ## if_equal
 if_equal(){
   RAGUEL_IF_EQUAL_STATE=
