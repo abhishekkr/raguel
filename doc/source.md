@@ -32,7 +32,7 @@ try_source $ANYPATH/helper.sh"
 
 ---
 
-#### `export_default`
+#### `export_default`, alias `env_set`
 
 * this will check if passed env-var name has a value, if not assigns provided default valur
 
@@ -44,6 +44,22 @@ try_source $ANYPATH/helper.sh"
 
 ```Shell
 export_default ABC some
+```
+
+---
+
+#### `env_get`
+
+* can pass a composed Var name to it for its env value
+
+##### syntax
+
+` # env_get <env-var-name>
+
+##### usage
+
+```Shell
+env_get HOME
 ```
 
 ---

@@ -16,9 +16,29 @@ try_source(){
 }
 
 export_default(){
+  if [ $# -lt 2 ] ; then
+    echo "ERROR:SC: usage: export_default <var-name> <default-value>" && exit 1
+  fi
+
   local VAR_NAME="$1"
   local DEFAULT_VALUE="$2"
 
   [[ -z $(env | grep ${VAR_NAME}) ]] && \
     export ${VAR_NAME}="${DEFAULT_VALUE}"
+}
+
+env_get(){
+  if [ $# -lt 1 ] ; then
+    echo "ERROR:SC: usage: env_get <var-name>" && exit 1
+  fi
+
+  echo $(env | grep "^${1}=" 2>/dev/null | cut -d"=" -f 2- 2>/dev/null)
+}
+
+env_set(){
+  if [ $# -lt 2 ] ; then
+    echo "ERROR:SC: usage: env_set <var-name> <default-value>" && exit 1
+  fi
+
+  export_default "$1" "$2"
 }

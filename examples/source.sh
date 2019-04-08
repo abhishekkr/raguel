@@ -10,3 +10,10 @@ echo $ABC
 
 export_default ABC thing
 echo $ABC
+
+unset ABC
+
+env_set ABC wing
+echo $ABC
+
+env_get ABC
