@@ -16,7 +16,7 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 
 ***
 
-#### try_source
+#### `try_source`
 
 * this will check if the file to source exists or not, and try to source correctly; exit on any error
 
@@ -30,4 +30,20 @@ export RAGUEL_DIR="$RAGUEL_DIR/../src"
 try_source $ANYPATH/helper.sh"
 ```
 
-***
+---
+
+#### `export_default`
+
+* this will check if passed env-var name has a value, if not assigns provided default valur
+
+##### syntax
+
+` # export_default <env-var-name> <default-value-if-env-var-got-none>`
+
+##### usage
+
+```Shell
+export_default ABC some
+```
+
+---

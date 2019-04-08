@@ -14,3 +14,11 @@ try_source(){
     done
     unset _FILE_TO_SOURCE
 }
+
+export_default(){
+  local VAR_NAME="$1"
+  local DEFAULT_VALUE="$2"
+
+  [[ -z $(env | grep ${VAR_NAME}) ]] && \
+    export ${VAR_NAME}="${DEFAULT_VALUE}"
+}
